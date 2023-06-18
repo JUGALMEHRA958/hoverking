@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
+
+
 
 function App() {
+  const [isShow , setIsShow] = useState(false);
+  function handleEntry(){
+    console.log("handle entry")
+    setIsShow(true)
+  }
+  function handleExit(){
+    setIsShow(false)
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* i am using some events here */}
+      <label onMouseEnter={handleEntry} onMouseLeave={handleExit}>Hover over me</label>
+      {isShow ? <div>Thanks for hovering! </div> : ""}
     </div>
   );
+
 }
 
+
 export default App;
+ 
